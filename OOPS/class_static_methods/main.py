@@ -1,3 +1,5 @@
+import datetime
+
 class Employee:
     
     # Instance Varibales are unique to all the instances of a Class
@@ -32,11 +34,19 @@ class Employee:
 
         # return Employee(first_name, last_name, int(pay_amnt))
         return cls(first_name, last_name, int(pay_amnt))
+
+    
+    @staticmethod
+    def is_weekday(day) -> bool:
+        if day.weekday() == 5 or day.weekday == 6:
+            return False
+        return True
     
 # Regular Methods in a class automaticlly take Instance as the first Argument. By converntion we call it `self` 
 # Class Methods in a class automaticlly takes Class as the first Argument. By converntion we call it `Cls` 
 #   -> Class Methods can be used as alternative constructors  
-# Static Methods
+# Static Methods don't pass anything automatically like instance or classs methods
+
 
 
 emp1 = Employee('Haseeb', 'Mohd', 1000)
@@ -83,5 +93,8 @@ new_emp_5.apply_raise()
 print(new_emp_5.pay)
 
 
+# Static Method use Case
 
+my_date = datetime.datetime(2022, 12, 21)
 
+print(Employee.is_weekday(my_date))
